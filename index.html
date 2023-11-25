@@ -112,23 +112,33 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
+var dropActive = false;
+
+codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
+  event.preventDefault();
+  dropActive = true;
+});
+
+codeMirror.getWrapperElement().addEventListener("dragleave", function () {
+  dropActive = false;
+});
+
 codeMirror.getWrapperElement().addEventListener("drop", function (event) {
-        event.preventDefault();
-        var imageUrl = event.dataTransfer.getData("text/html");
-        var tempDiv = document.createElement("div");
-        tempDiv.innerHTML = imageUrl;
+  event.preventDefault();
+  if (dropActive) {
+    var imageUrl = event.dataTransfer.getData("text/html");
+    var tempDiv = document.createElement("div");
+    tempDiv.innerHTML = imageUrl;
 
-        var imgElement = tempDiv.querySelector("img");
-        var altText = imgElement ? imgElement.alt : "block not ready yet";
+    var imgElement = tempDiv.querySelector("img");
+    var altText = imgElement ? imgElement.alt : "No alt text available";
 
-        var cursor = codeMirror.getCursor();
-        codeMirror.replaceRange(altText, cursor, cursor);
-      });
+    var cursor = codeMirror.getCursor();
+    codeMirror.replaceRange(altText, cursor, cursor);
 
-      codeMirror.on("dragover", function (event) {
-        event.preventDefault();
-      });
-
+    dropActive = false;
+  }
+});
 
 // Debounces a function, pulled out of Underscore.js
 function debounce(func, wait, immediate) {
