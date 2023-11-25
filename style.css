@@ -227,7 +227,7 @@ button:active, button.pressed, .button:active, .button.pressed {
     margin-left: 2rem;
   }
 
-  #left, #preview, #side, #farrright {
+  #left, #preview, #side, #farright {
     position: absolute;
     bottom: 2em; left: 2em; right: 2em;
   }
