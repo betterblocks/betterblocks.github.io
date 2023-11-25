@@ -300,7 +300,7 @@ function updatedFromHash() {
 
 updatedFromHash();
 
-
+document.addEventListener("DOMContentLoaded", function() {
 const draggableElements = document.querySelectorAll('.draggable');
 draggableElements.forEach(element => {
         element.addEventListener('dragstart', function(event) {
@@ -318,4 +318,5 @@ draggableElements.forEach(element => {
         const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
         codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
       });
+    });
 </script>
