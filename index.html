@@ -41,31 +41,31 @@
 <div id="farright">
 <div id="blocklistcont">
   <h3>motion</h3>
-  <img src="/blocklist/motion/movesteps.png" alt="move () steps" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/movebacksteps.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/movemultichoicesteps.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/turnrightdegrees.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/turnleftdegrees.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/goto.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/gotoxy.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/changeby.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/glideto.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/glidetoxy.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/point.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/pointtowards.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/pointtowardsxy.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/turnaround.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/changex.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/setx.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/changey.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/sety.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/edgebounce.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/iftouchingbounce.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/rotationstyle.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/movetostage.png" style="height: 47px; width: auto;"></br>
-  <img src="/blocklist/motion/xpos.png" style="height: 37px; width: auto;"></br>
-  <img src="/blocklist/motion/ypos.png" style="height: 37px; width: auto;"></br>
-  <img src="/blocklist/motion/dir.png" style="height: 37px; width: auto;">
+  <img src="/blocklist/motion/movesteps.png" alt="move () steps" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/movebacksteps.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/movemultichoicesteps.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/turnrightdegrees.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/turnleftdegrees.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/goto.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/gotoxy.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/changeby.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/glideto.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/glidetoxy.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/point.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/pointtowards.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/pointtowardsxy.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/turnaround.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/changex.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/setx.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/changey.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/sety.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/edgebounce.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/iftouchingbounce.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/rotationstyle.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/movetostage.png" style="height: 47px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/xpos.png" style="height: 37px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/ypos.png" style="height: 37px; width: auto;" class="draggable"></br>
+  <img src="/blocklist/motion/dir.png" style="height: 37px; width: auto;" class="draggable">
   <h3 class="blockheader">looks</h3>
   <img src="/blocklist/looks/setfont.png" style="height: 47px; width: auto;">
 </div>
@@ -112,24 +112,7 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
-codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
-        event.preventDefault();
-      });
-
-      codeMirror.getWrapperElement().addEventListener("drop", function (event) {
-        event.preventDefault();
-        var imageUrl = event.dataTransfer.getData("text/html");
-        var tempDiv = document.createElement("div");
-        tempDiv.innerHTML = imageUrl;
-
-        var imgElement = tempDiv.querySelector("img");
-        var altText = imgElement ? imgElement.alt : "No alt text available";
-
-        var cursor = codeMirror.getCursor();
-        codeMirror.replaceRange(altText, cursor, cursor);
-      });
       
-
 // Debounces a function, pulled out of Underscore.js
 function debounce(func, wait, immediate) {
   var timeout, result;
@@ -317,4 +300,22 @@ function updatedFromHash() {
 
 updatedFromHash();
 
+
+const draggableElements = document.querySelectorAll('.draggable');
+draggableElements.forEach(element => {
+        element.addEventListener('dragstart', function(event) {
+          event.dataTransfer.setData('text/plain', event.target.alt);
+        });
+      });
+
+      codeMirror.getWrapperElement().addEventListener('dragover', function(event) {
+        event.preventDefault();
+      });
+
+      codeMirror.getWrapperElement().addEventListener('drop', function(event) {
+        event.preventDefault();
+        const altText = event.dataTransfer.getData('text/plain');
+        const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
+        codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
+      });
 </script>
