@@ -231,6 +231,7 @@ button:active, button.pressed, .button:active, .button.pressed {
     position: absolute;
     bottom: 2em; left: 2em; right: 2em;
   }
+  
 
   #editor {
     position: absolute;
