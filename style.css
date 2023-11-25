@@ -239,6 +239,12 @@ button:active, button.pressed, .button:active, .button.pressed {
     height: auto;
   }
 
+  #blocklistcont {
+    position: absolute;
+    top: 3.25em; bottom: 0; left: 2em; right: 0;
+    margin: 0;
+    height: auto;
+  }
 
   #side {
     top: 4.75em;
