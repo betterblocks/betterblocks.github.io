@@ -118,9 +118,12 @@ codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
 
       codeMirror.getWrapperElement().addEventListener("drop", function (event) {
         event.preventDefault();
-        var imageUrl = event.dataTransfer.getData("text/html");
+        var selection = window.getSelection();
+        var range = selection.getRangeAt(0);
+        var selectedContent = range.cloneContents();
+
         var tempDiv = document.createElement("div");
-        tempDiv.innerHTML = imageUrl;
+        tempDiv.appendChild(selectedContent);
 
         var imgElement = tempDiv.querySelector("img");
         var altText = imgElement ? imgElement.alt : "No alt text available";
@@ -128,7 +131,7 @@ codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
         var cursor = codeMirror.getCursor();
         codeMirror.replaceRange(altText, cursor, cursor);
       });
-      
+
 
 // Debounces a function, pulled out of Underscore.js
 function debounce(func, wait, immediate) {
