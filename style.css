@@ -250,7 +250,9 @@ button:active, button.pressed, .button:active, .button.pressed {
     top: 8em;
     right: 55%;
     overflow-y: scroll;
+    border: 1px solid #bbb;
   }
+  
   #left {
     top: 6.25em;
     right: 55%;
