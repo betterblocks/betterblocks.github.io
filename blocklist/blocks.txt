@@ -1,0 +1,256 @@
+# motion
+move () steps
+move back () steps :: motion
+move [up v] () steps :: motion
+turn right () degrees
+turn left () degrees
+go to (random position v)
+go to x: () y: ()
+change by x: () y: () :: motion
+glide () secs to (random position v)
+glide () secs to x: () y: ()
+point in direction ()
+point towards (mouse-pointer v)
+point towards x: () y: () :: motion
+turn around :: motion
+change x by ()
+set x to ()
+change y by ()
+set y to ()
+if on edge, bounce
+if touching (mouse-pointer v), bounce :: motion
+set rotation style [left-right v]
+move to stage [bottom-left v] :: motion
+x position
+y position 
+direction
+
+# looks
+say [] for () seconds
+say []
+think [] for () seconds
+think []
+stop speaking :: looks
+set font to [] with font size () :: looks
+set [border v] color to (#7c4efb) :: looks
+set text bubble [border line width v] to () :: looks
+bubble width :: looks
+bubble height :: looks
+switch costume to (costume1 v)
+next costume 
+previous costume :: looks
+switch backdrop to (backdrop1 v)
+next backdrop
+previous backdrop :: looks
+(width v) of (costume1 v) :: looks reporter
+change size by ()
+set size to ()%
+set stretch to x: () y: () :: looks
+x stretch :: looks reporter
+y stretch :: looks reporter
+change [color v] effect by ()
+set [color v] effect to ()
+clear graphic effects
+[color v] effect :: looks reporter
+show
+hide
+visible? :: looks boolean
+show (Sprite2 v) :: looks
+hide (Sprite2 v) :: looks
+is (Sprite2 v) visible? :: looks boolean
+go to [front v] layer
+go [forward v] () layers
+go to layer () :: looks 
+layer :: looks reporter
+costume [number v]
+backdrop [number v]
+size
+
+# sound
+play sound ( v) until done
+play sound ( v) starting at () seconds until done :: sound
+start sound ( v)
+start sound ( v) at () seconds :: sound
+stop sound ( v) :: sound
+play all sounds :: sound
+stop all sounds
+set fade out to () seconds on ( v) :: sound
+is ( v) playing? :: sound boolean
+length of ( v) :: sound reporter
+change [pitch v] effect by ()
+set [pitch v] effect to ()
+clear sound effects
+[pitch v] effect :: sound reporter
+change volume by ()
+set volume to ()%
+volume
+
+# events
+when gf clicked
+when @stopSign clicked :: events hat
+always :: events hat
+when <> :: events hat
+when [space v] key pressed
+when [space v] key hit :: events hat
+when mouse is scrolled [up v] :: events hat
+when this sprite clicked
+when backdrop switches to [backdrop1 v]
+when [loudness v] > ()
+when I receive [message1 v]
+broadcast (message1 v)
+broadcast (message1 v) and wait
+
+# control 
+wait () seconds
+wait () seconds or until <> :: control 
+repeat () 
+end
+forever
+end
+switch [] {
+add case blocks in here... :: grey
+} :: control
+switch [] {
+add case blocks in here... :: grey
+} default {
+default execution... :: grey
+} :: control
+exit case :: control cap
+run next case when () :: control
+case [] {
+} :: control
+if <> then
+end
+if <> then
+else
+end
+wait until <>
+repeat until <>
+end
+while <> {
+} :: control
+for each [i v] in () {
+} :: control
+if <> is true [] is false [] :: control reporter
+all at once {
+} :: control
+run @greenFlag :: control
+stop (Stage v) :: control stack
+stop [all v]
+as (Stage v){
+} :: control
+when I start as a clone
+create clone of (myself v)
+delete clones of (myself v) :: control
+delete this clone
+
+# sensing
+touching (mouse-pointer v)?
+(mouse-pointer v) touching (this sprite v)? :: sensing boolean
+touching color (#450364)?
+color (#7efdea) is touching (#491b3a)? :: sensing boolean
+[x v] of touching (mouse-pointer v) point :: sensing reporter
+distance to (mouse-pointer v)
+distance from ()() to ()() :: sensing reporter
+direction to ()() from ()() :: sensing reporter
+ask [] and wait
+answer
+[] is text? :: sensing boolean
+[] is number? :: sensing boolean
+key (space v) pressed?
+key (space v) hit? :: sensing boolean
+is mouse scrolling (up v)? :: sensing boolean
+mouse down?
+mouse clicked? :: sensing boolean
+mouse x
+mouse y
+add [] to clipboard :: sensing
+clipboard item :: sensing reporter
+set drag mode [draggable v]
+draggable? :: sensing boolean
+loudness
+reset timer
+timer
+set [my variable v] of (Stage v) to () :: sensing
+[my variable v] of (Stage v) :: sensing reporter
+current [year v]
+days since 2000
+mobile? :: sensing boolean
+finger (1 v) down? :: sensing boolean
+finger (1 v) tapped? :: sensing boolean
+finger (1 v) x :: sensing reporter
+finger (1 v) y :: sensing reporter
+username
+
+# operators
+()+()
+()-()
+()*()
+()/()
+()[^ v]() :: operators reporter
+pick random () to ()
+constrain () min () max () :: operators reporter
+interpolate () to () by () :: operators reporter
+()>()
+()≥() :: operators boolean
+()\<()
+()≤() :: operators boolean
+()=()
+()≠() :: operators boolean
+true :: operators boolean
+false :: operators boolean
+<> and <>
+<> or <>
+not <>
+new line :: operators reporter
+tab character :: operators reporter
+join [][]
+join [][][] :: operators reporter
+index of [] in [] :: operators reporter
+last index of [] in [] :: operators reporter
+letter () of [] :: operators reporter
+letters from () to () in [] :: operators reporter
+length of []
+[] contains []?
+[] [starts v] with []? :: operators boolean
+in [] replace all [] with [] :: operators reporter
+in [] replace first [] with [] :: operators reporter
+match [] with regex [][] :: operators reporter
+[] to [uppercase v] :: operators reporter
+() mod ()
+round ()
+[abs v] of ()
+() :: operators reporter
+[] :: operators boolean
+
+# variables
+my variable :: variables reporter
+set [my variable v] to []
+change [my variable v] by ()
+show variable [my variable v]
+hide variable [my variable v]
+
+# lists
+add [] to [my list v]
+delete () of [my list v]
+delete all of [my list v]
+insert [] at () of [my list v]
+replace item () of [my list v] with []
+for each item [i v] in [my list v] {
+} :: list
+for each item #[i v] in [my list v] {
+} :: list
+item () of [my list v]
+item # of [] in [my list v]
+length of [my list v]
+[my list v] contains []?
+item () exists in [my list v]? :: list boolean
+is [my list v] empty? :: list boolean
+reverse [my list v] :: list
+set [my list v] to array [] :: list
+get list [my list v] as an array :: list
+show list [my list v]
+hide list [my list v]
+
+# myblocks
+return () :: custom cap
