@@ -112,7 +112,7 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
-editor.getWrapperElement().addEventListener("drop", function (event) {
+codeMirror.getWrapperElement().addEventListener("drop", function (event) {
         event.preventDefault();
         var imageUrl = event.dataTransfer.getData("text/html");
         var tempDiv = document.createElement("div");
@@ -121,8 +121,8 @@ editor.getWrapperElement().addEventListener("drop", function (event) {
         var imgElement = tempDiv.querySelector("img");
         var altText = imgElement ? imgElement.alt : "block not ready yet";
 
-        var cursor = editor.getCursor();
-        editor.replaceRange(altText, cursor, cursor);
+        var cursor = codeMirror.getCursor();
+        codeMirror.replaceRange(altText, cursor, cursor);
 });
 
 // Debounces a function, pulled out of Underscore.js
