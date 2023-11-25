@@ -249,6 +249,10 @@ button:active, button.pressed, .button:active, .button.pressed {
     overflow: hidden;
   }
 
+  .blockheader {
+    padding-top: 10px;
+  }
+
   #side {
     top: 4.75em;
     left: 45%;
