@@ -112,25 +112,33 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
-codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
-        event.preventDefault();
-      });
+var textArea = codeMirror.getTextArea();
 
-      codeMirror.getWrapperElement().addEventListener("drop", function (event) {
-        event.preventDefault();
-        var selection = window.getSelection();
-        var range = selection.getRangeAt(0);
-        var selectedContent = range.cloneContents();
+textArea.addEventListener("dragover", function (event) {
+  event.preventDefault();
+});
 
-        var tempDiv = document.createElement("div");
-        tempDiv.appendChild(selectedContent);
+textArea.addEventListener("drop", function (event) {
+  event.preventDefault();
+  var imageUrl = event.dataTransfer.getData("text/html");
+  var tempDiv = document.createElement("div");
+  tempDiv.innerHTML = imageUrl;
 
-        var imgElement = tempDiv.querySelector("img");
-        var altText = imgElement ? imgElement.alt : "No alt text available";
+  var imgElement = tempDiv.querySelector("img");
+  var altText = imgElement ? imgElement.alt : "No alt text available";
 
-        var cursor = codeMirror.getCursor();
-        codeMirror.replaceRange(altText, cursor, cursor);
-      });
+  var startPos = textArea.selectionStart;
+  var endPos = textArea.selectionEnd;
+
+  var currentValue = textArea.value;
+  var newValue =
+    currentValue.substring(0, startPos) +
+    altText +
+    currentValue.substring(endPos);
+
+  textArea.value = newValue;
+  textArea.setSelectionRange(startPos + altText.length, startPos + altText.length);
+});
 
 
 // Debounces a function, pulled out of Underscore.js
