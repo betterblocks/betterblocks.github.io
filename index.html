@@ -112,6 +112,23 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
+codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
+        event.preventDefault();
+      });
+
+      codeMirror.getWrapperElement().addEventListener("drop", function (event) {
+        event.preventDefault();
+        var imageUrl = event.dataTransfer.getData("text/html");
+        var tempDiv = document.createElement("div");
+        tempDiv.innerHTML = imageUrl;
+
+        var imgElement = tempDiv.querySelector("img");
+        var altText = imgElement ? imgElement.alt : "No alt text available";
+
+        var cursor = codeMirror.getCursor();
+        codeMirror.replaceRange(altText, cursor, cursor);
+      });
+      
 
 // Debounces a function, pulled out of Underscore.js
 function debounce(func, wait, immediate) {
@@ -300,31 +317,4 @@ function updatedFromHash() {
 
 updatedFromHash();
 
-var editor = document.querySelector('.CodeMirror textarea');
-
-  editor.addEventListener("dragover", function (event) {
-    event.preventDefault();
-  });
-
-  editor.addEventListener("drop", function (event) {
-    event.preventDefault();
-    var imageUrl = event.dataTransfer.getData("text/html");
-    var tempDiv = document.createElement("div");
-    tempDiv.innerHTML = imageUrl;
-
-    var imgElement = tempDiv.querySelector("img");
-    var altText = imgElement ? imgElement.alt : "No alt text available";
-
-    var startPos = editor.selectionStart;
-    var endPos = editor.selectionEnd;
-
-    var currentValue = editor.value;
-    var newValue =
-      currentValue.substring(0, startPos) +
-      altText +
-      currentValue.substring(endPos);
-
-    editor.value = newValue;
-    editor.setSelectionRange(startPos + altText.length, startPos + altText.length);
-  });
 </script>
