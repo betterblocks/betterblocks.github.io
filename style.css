@@ -248,6 +248,7 @@ button:active, button.pressed, .button:active, .button.pressed {
   }
 
   #farright {
+    position: absolute;
     top: 4.75em;
     left: 80%;
     padding-left: 2em;
