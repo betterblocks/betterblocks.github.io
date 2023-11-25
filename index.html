@@ -116,12 +116,11 @@ codeMirror.getWrapperElement().addEventListener("drop", function (event) {
         event.preventDefault();
         var imageUrl = event.dataTransfer.getData("text/uri-list");
 
-        var altText = "No alt text available";
-        var altMatch = imageUrl.match(/alt=(".*?"|'.*?'|[^'"]*?)(?=\s|\/|>)/);
-        if (altMatch) {
-          altText = altMatch[1].replace(/['"]/g, ''); // Remove quotes if present
-        }
+            var tempDiv = document.createElement("div");
+            tempDiv.innerHTML = imageUrl;
 
+            var imgElement = tempDiv.querySelector("img");
+            var altText = imgElement ? imgElement.alt : "No alt text available";
         var cursor = codeMirror.getCursor();
         codeMirror.replaceRange(altText, cursor, cursor);
       });
