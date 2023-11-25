@@ -112,22 +112,23 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
-codeMirror.getWrapperElement().addEventListener("drop", function (event) {
+codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
         event.preventDefault();
-        var imageUrl = event.dataTransfer.getData("text/uri-list");
+      });
 
-            var tempDiv = document.createElement("div");
-            tempDiv.innerHTML = imageUrl;
+      codeMirror.getWrapperElement().addEventListener("drop", function (event) {
+        event.preventDefault();
+        var imageUrl = event.dataTransfer.getData("text/html");
+        var tempDiv = document.createElement("div");
+        tempDiv.innerHTML = imageUrl;
 
-            var imgElement = tempDiv.querySelector("img");
-            var altText = imgElement ? imgElement.alt : "No alt text available";
+        var imgElement = tempDiv.querySelector("img");
+        var altText = imgElement ? imgElement.alt : "No alt text available";
+
         var cursor = codeMirror.getCursor();
         codeMirror.replaceRange(altText, cursor, cursor);
       });
-
-      codeMirror.getWrapperElement().addEventListener("dragover", function (event) {
-        event.preventDefault();
-      });
+      
 
 // Debounces a function, pulled out of Underscore.js
 function debounce(func, wait, immediate) {
