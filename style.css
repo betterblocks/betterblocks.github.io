@@ -239,11 +239,19 @@ button:active, button.pressed, .button:active, .button.pressed {
     height: auto;
   }
 
+
   #side {
     top: 4.75em;
     left: 45%;
     padding-left: 2em;
     width: 35%;
+  }
+
+  #farright {
+    top: 4.75em;
+    left: 80%;
+    padding-left: 2em;
+    width: 15%;
   }
 
   #preview {
@@ -252,7 +260,7 @@ button:active, button.pressed, .button:active, .button.pressed {
     overflow-y: scroll;
     border: 1px solid #bbb;
   }
-  
+
   #left {
     top: 6.25em;
     right: 55%;
