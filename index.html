@@ -112,6 +112,19 @@ var codeMirror = CodeMirror(editor, {
 });
 codeMirror.setCursor(codeMirror.getValue().length);
 
+let draggableElements;
+
+document.addEventListener("DOMContentLoaded", function() {
+  draggableElements = document.querySelectorAll('.draggable');
+
+  draggableElements.forEach(element => {
+    element.addEventListener('click', function(event) {
+      const altText = element.alt;
+      const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
+      codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
+    });
+  });
+
       
 // Debounces a function, pulled out of Underscore.js
 function debounce(func, wait, immediate) {
@@ -300,17 +313,5 @@ function updatedFromHash() {
 
 updatedFromHash();
 
-let draggableElements
 
-document.addEventListener("DOMContentLoaded", function() {
-  draggableElements = document.querySelectorAll('.draggable');
-  
-  draggableElements.forEach(element => {
-    element.addEventListener('click', function(event) {
-      const altText = event.target.alt;
-      const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
-      codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
-    });
-  });
- });
 </script>
