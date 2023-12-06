@@ -301,22 +301,13 @@ function updatedFromHash() {
 updatedFromHash();
 
 document.addEventListener("DOMContentLoaded", function() {
-const draggableElements = document.querySelectorAll('.draggable');
-draggableElements.forEach(element => {
-        element.addEventListener('dragstart', function(event) {
-          event.dataTransfer.setData('text/plain', event.target.alt);
-        });
-      });
-
-      codeMirror.getWrapperElement().addEventListener('dragover', function(event) {
-        event.preventDefault();
-      });
-
-      codeMirror.getWrapperElement().addEventListener('drop', function(event) {
-        event.preventDefault();
-        const altText = event.dataTransfer.getData('text/plain');
-        const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
-        codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
-      });
+  const draggableElements = document.querySelectorAll('.draggable');
+  
+  draggableElements.forEach(element => {
+    element.addEventListener('click', function(event) {
+      const altText = event.target.alt;
+      const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
+      codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
     });
+  });
 </script>
