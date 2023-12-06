@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const lineEnd = codeMirror.getLine(cursor.line).length;
 
       // Check if cursor is at the end of the line
-      if (cursor.ch === lineEnd) {
+      if (cursor.ch === lineEnd && lineEnd != 0) {
         codeMirror.replaceRange(`\n${altText}`, cursor);
       } else {
         codeMirror.replaceRange(altText, cursor);
