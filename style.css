@@ -28,6 +28,10 @@ select, input, button {
   font-size: 1em;
 }
 
+.draggable {
+  cursor: pointer;
+}
+
 input {
   border: 1px solid #ccc;
   max-width: 100%;
