@@ -41,7 +41,7 @@
 <div id="farright">
 <div id="blocklistcont">
   <h3>motion</h3>
-  <img src="/blocklist/motion/movesteps.png" alt="&#10;move () steps" style="height: 47px; width: auto;" class="draggable" draggable="false"></br>
+  <img src="/blocklist/motion/movesteps.png" alt="move () steps" style="height: 47px; width: auto;" class="draggable" draggable="false"></br>
   <img src="/blocklist/motion/movebacksteps.png" style="height: 47px; width: auto;" class="draggable" draggable="false"></br>
   <img src="/blocklist/motion/movemultichoicesteps.png" style="height: 47px; width: auto;" class="draggable" draggable="false"></br>
   <img src="/blocklist/motion/turnrightdegrees.png" style="height: 47px; width: auto;" class="draggable" draggable="false"></br>
@@ -115,15 +115,21 @@ codeMirror.setCursor(codeMirror.getValue().length);
 let draggableElements;
 
 document.addEventListener("DOMContentLoaded", function() {
-  draggableElements = document.querySelectorAll('.draggable');
-
+  let draggableElements = document.querySelectorAll('.draggable');
+  
   draggableElements.forEach(element => {
     element.addEventListener('click', function(event) {
       const altText = element.alt;
-      const cursor = codeMirror.getCursor(); // Get cursor position in CodeMirror
-      codeMirror.replaceRange(altText, cursor); // Insert alt text at cursor position
+      const cursor = codeMirror.getCursor();
+      const lineEnd = codeMirror.getLine(cursor.line).length;
+
+      // Check if cursor is at the end of the line
+      if (cursor.ch === lineEnd) {
+        codeMirror.replaceRange(`\n${altText}`, cursor);
+      } else {
+        codeMirror.replaceRange(altText, cursor);
+      }
     });
-  });
   });
       
 // Debounces a function, pulled out of Underscore.js
