@@ -300,8 +300,10 @@ function updatedFromHash() {
 
 updatedFromHash();
 
+let draggableElements
+
 document.addEventListener("DOMContentLoaded", function() {
-  const draggableElements = document.querySelectorAll('.draggable');
+  draggableElements = document.querySelectorAll('.draggable');
   
   draggableElements.forEach(element => {
     element.addEventListener('click', function(event) {
