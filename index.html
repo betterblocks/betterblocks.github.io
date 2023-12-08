@@ -105,6 +105,23 @@ downloadNameInput.addEventListener('input', (event) => {
   }
 });
 
+function adjustInputWidth() {
+        const minWidth = 100;
+        const textWidth = measureTextWidth(downloadNameInput.value, '1em "Noto Sans", sans-serif');
+        const newWidth = Math.max(minWidth, textWidth);
+        downloadNameInput.style.width = newWidth + 'px';
+    }
+
+function measureTextWidth(text, font) {
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        context.font = font;
+        const metrics = context.measureText(text);
+        return metrics.width;
+    }
+
+downloadNameInput.addEventListener('input', adjustInputWidth);
+
 var obj = {
   style: 'scratch3',
 };
