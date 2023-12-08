@@ -40,6 +40,7 @@ input {
 #downloadname {
   transition: width 0.2s ease-in-out;
   width: 95px;
+  max-width: 536px;
 }
 
 h1, h2, code, input[type=url], #num-chosen-scripts {
