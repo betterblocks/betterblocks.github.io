@@ -37,6 +37,10 @@ input {
   max-width: 100%;
 }
 
+#downloadname {
+  transition: width 0.2s ease-in-out;
+}
+
 h1, h2, code, input[type=url], #num-chosen-scripts {
   font-family: Noto Sans, sans-serif;
 }
