@@ -20,7 +20,8 @@ body {
 }
 
 body, .CodeMirror {
-  font-family: Segoe UI, Noto Sans, sans-serif;
+  font-family: Noto Sans, sans-serif;
+}
 
 select, input, button {
   font: inherit;
@@ -37,7 +38,7 @@ input {
 }
 
 h1, h2, code, input[type=url], #num-chosen-scripts {
-  font-family: Segoe UI, Noto Sans, sans-serif;
+  font-family: Noto Sans, sans-serif;
 }
 
 h1 {
@@ -529,4 +530,3 @@ img .hidden {
   position: absolute;
   opacity: 0;
 }
-
