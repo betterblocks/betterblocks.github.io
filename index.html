@@ -78,6 +78,7 @@
 
 <a id="export-svg" class="export-link" download="betterblocks.svg">Export SVG</a>
 <a id="export-png" class="export-link" download="betterblocks.png">Export PNG</a>
+<input id="downloadname" type="text">
 
 <!---------------------------------------------------------------------------->
 
@@ -89,6 +90,24 @@
 var editor = document.getElementById('editor');
 var exportSVGLink = document.getElementById('export-svg');
 var exportPNGLink = document.getElementById('export-png');
+
+const downloadNameInput = document.getElementById('downloadname');
+
+downloadNameInput.addEventListener('input', (event) => {
+  const value = event.target.value;
+  const hasExtension = value.endsWith('.svg') || value.endsWith('.png');
+  const hasOnlyExtension = value.trim() === '.svg' || value.trim() === '.png';
+
+  if (!hasExtension) {
+    event.target.value += '.svg/.png';
+  } else if (hasOnlyExtension) {
+    event.target.value = '';
+  }
+
+  const filenameWithoutExtension = value.replace(/\.svg|\.png$/i, '');
+  exportSVGLink.download = `${filenameWithoutExtension}.svg`;
+  exportPNGLink.download = `${filenameWithoutExtension}.png`;
+});
 
 var obj = {
   style: 'scratch3',
