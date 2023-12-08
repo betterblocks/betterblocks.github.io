@@ -109,7 +109,7 @@ function adjustInputWidth() {
         const minWidth = 100;
         const textWidth = measureTextWidth(downloadNameInput.value, '16px "Noto Sans", sans-serif');
         const newWidth = Math.max(minWidth, textWidth);
-        downloadNameInput.style.width = newWidth + 'px';
+        downloadNameInput.style.width = newWidth + 5 + 'px';
     }
 
 function measureTextWidth(text, font) {
