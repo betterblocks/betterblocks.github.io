@@ -95,9 +95,13 @@ const downloadNameInput = document.getElementById('downloadname');
 
 downloadNameInput.addEventListener('input', (event) => {
   const value = event.target.value;
-
-  exportSVGLink.download = `${value}.svg`;
-  exportPNGLink.download = `${value}.png`;
+  if (!value) {
+    exportSVGLink.download = `betterblocks.svg`;
+    exportPNGLink.download = `betterblocks.png`;
+  } else {
+    exportSVGLink.download = `${value}.svg`;
+    exportPNGLink.download = `${value}.png`;
+  }
 });
 
 var obj = {
